@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex" />
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="main.css" rel="stylesheet" />
+   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="shop.js"></script>
+    <div x-data="items">
+      <div>
+        <h1>GenX shop
+            
+        </h1>
+      </div>
+      <div class="navbar"> <h1>Your solution to loadshedding</h1>
+      <div class="cart" x-show="Wen != 0 || Canibas != 0 || DuroStar != 0 Wanco != 0 || Generag != 0 || Generac != 0 || Tes != 0 || Champion != 0 GasBank != 0 || Daly != 0 || Alva != 0 Cassandra != 0 || Bluegas != 0 || CALOR != 0 || CADEC != 0 || Flogas != 0">
+        <h2>Cart</h2>
+        <template x-if="DuroStar > 0">
+          <div class="large-cart">
+            DuroStar:
+            <template x-if="!checkout"
+              ><button @click="add = ('DuroStar')" class="but">+</button> </template
+            ><span x-text="DuroStar"></span
+            ><template x-if="!checkout"
+              ><button @click="remove = ('DuroStar')" class="but">-</button></template
+            >
+            <span> R<span x-text="(largeTotal).toFixed(2)"></span></span>
+          </div>
+        </template>
+        <template x-if="Canibas > 0">
+          <div class="medium-cart">
+            Canibas:
+            <template x-if="!checkout"
+              ><button @click="add = ('Canibas')"class="but">+</button></template
+            ><span x-text="Canibas"></span
+            ><template x-if="!checkout"
+              ><button @click="remove = ('Canibas')"class="but">-</button></template
+            >
+            <span> R<span x-text="(mediumTotal).toFixed(2)"></span></span>
+          </div>
+        </template>
+        <template x-if="Wen > 0">
+          <div class="small-cart">
+            Wen:
+            <template x-if="!checkout">
+              <button @click="add = ('Wen')"class="but">+</button> </template
+            ><span x-text="Wen"></span
+            ><template x-if="!checkout"
+              ><button @click="remove = ('Wen')"class="but">-</button></template
+            >
+            <span> R<span x-text="(smallTotal).toFixed(2)"></span></span>
+          </div>
+        </template>
+
+        <template x-if="Wanco > 0">
+            <div class="large-cart">
+              Wanco:
+              <template x-if="!checkout"
+                ><button @click="add = ('Wanco')"class="but">+</button> </template
+              ><span x-text="Wanco"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Wanco')"class="but">-</button></template
+              >
+              <span> R<span x-text="(WanTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+          <template x-if="Generag > 0">
+            <div class="medium-cart">
+              Generag:
+              <template x-if="!checkout"
+                ><button @click="add = ('Generag')"class="but">+</button></template
+              ><span x-text="Generag"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Generag')"class="but">-</button></template
+              >
+              <span> R<span x-text="(GenTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+          <template x-if="Generac > 0">
+            <div class="small-cart">
+              Generac:
+              <template x-if="!checkout">
+                <button @click="add = ('Generac')"class="but">+</button> </template
+              ><span x-text="Generac"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Generac')"class="but">-</button></template
+              >
+              <span> R<span x-text="(racTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+
+          <template x-if="Tes > 0">
+            <div class="medium-cart">
+              Tes:
+              <template x-if="!checkout"
+                ><button @click="add = ('Tes')"class="but">+</button></template
+              ><span x-text="Tes"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Tes')"class="but">-</button></template
+              >
+              <span> R<span x-text="(tesTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+          <template x-if="Champion > 0">
+            <div class="Champion-cart">
+              Champion:
+              <template x-if="!checkout">
+                <button @click="add = ('Champion')"class="but">+</button> </template
+              ><span x-text="Champion"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Champion')"class="but">-</button></template
+              >
+              <span> R<span x-text="(champTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+
+
+          <template x-if="GasBank > 0">
+            <div class="large-cart">
+              GasBank:
+              <template x-if="!checkout"
+                ><button @click="add = ('GasBank')"class="but">+</button> </template
+              ><span x-text="GasBank"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('GasBank')"class="but">-</button></template
+              >
+              <span> R<span x-text="(gasTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+          <template x-if="Daly > 0">
+            <div class="medium-cart">
+              Daly:
+              <template x-if="!checkout"
+                ><button @click="add = ('Daly')"class="but">+</button></template
+              ><span x-text="Daly"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Daly')"class="but">-</button></template
+              >
+              <span> R<span x-text="(dalyTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+          <template x-if="Alva > 0">
+            <div class="small-cart">
+              Alva:
+              <template x-if="!checkout">
+                <button @click="add = ('Alva')"class="but">+</button> </template
+              ><span x-text="Alva"></span
+              ><template x-if="!checkout"
+                ><button @click="remove = ('Alva')"class="but">-</button></template
+              >
+              <span> R<span x-text="(alvaTotal).toFixed(2)"></span></span>
+            </div>
+          </template>
+  
+          <template x-if="Cassandra > 0">
+              <div class="large-cart">
+                Cassandra:
+                <template x-if="!checkout"
+                  ><button @click="add = ('Cassandra')"class="but">+</button> </template
+                ><span x-text="Cassandra"></span
+                ><template x-if="!checkout"
+                  ><button @click="remove = ('Cassandra')"class="but">-</button></template
+                >
+                <span> R<span x-text="(casTotal).toFixed(2)"></span></span>
+              </div>
+            </template>
+            <template x-if="Bluegas > 0">
+              <div class="medium-cart">
+                Bluegas:
+                <template x-if="!checkout"
+                  ><button @click="add = ('Bluegas')"class="but">+</button></template
+                ><span x-text="Bluegas"></span
+                ><template x-if="!checkout"
+                  ><button @click="remove = ('Bluegas')"class="but">-</button></template
+                >
+                <span> R<span x-text="(blueTotal).toFixed(2)"></span></span>
+              </div>
+            </template>
+            <template x-if="CALOR > 0">
+              <div class="small-cart">
+                CALOR:
+                <template x-if="!checkout">
+                  <button @click="add = ('CALOR')"class="but">+</button> </template
+                ><span x-text="CALOR"></span
+                ><template x-if="!checkout"
+                  ><button @click="remove = ('CALOR')"class="but">-</button></template
+                >
+                <span> R<span x-text="(calTotal).toFixed(2)"></span></span>
+              </div>
+            </template>
+  
+            <template x-if="CADEC > 0">
+              <div class="medium-cart">
+                CADEC:
+                <template x-if="!checkout"
+                  ><button @click="add = ('CADEC')"class="but">+</button></template
+                ><span x-text="CADEC"></span
+                ><template x-if="!checkout"
+                  ><button @click="remove = ('CADEC')"class="but">-</button></template
+                >
+                <span> R<span x-text="(cadTotal).toFixed(2)"></span></span>
+              </div>
+            </template>
+            <template x-if="Flogas > 0">
+              <div class="Champion-cart">
+                Flogas:
+                <template x-if="!checkout">
+                  <button @click="add = ('Flogas')"class="but">+</button> </template
+                ><span x-text="Flogas"></span
+                ><template x-if="!checkout"
+                  ><button @click="remove = ('Flogas')"class="but">-</button></template
+                >
+                <span> R<span x-text="(floTotal).toFixed(2)"></span></span>
+              </div>
+            </template>
+           
+            <strong><div>Total: R<span x-text="(total).toFixed(2)"></span> </div></strong>
+        <template x-if="!checkout">
+          <button @click="checkout=!checkout" class="checkout">Checkout</button>
+        </template>
+        <template x-if="checkout">
+          <label
+            >Amount received from costumer: R<input
+              type="number"
+              min="0"
+              step="0.01"
+              x-model="paid"
+          /></label>
+        </template>
+        <template x-if="change == 0">
+          <span>
+            <div style="color: green">successful payment</div>
+            <button @click="reset">Complete Order</button>
+          </span>
+        </template>
+        <template x-if="change < 0">
+          <span>
+            <div style="color: red">insufficient funds</div>
+            <button @click="reset">Cancel order</button>
+          </span>
+        </template>
+
+        <template x-if="change > 0">
+          <span>
+            <div style="color: green">
+              successful payment, change: R<span
+                x-text="(change).toFixed(2)"
+              ></span>
+            </div>
+            <button @click="reset">Complete Order</button>
+          </span>
+        </template>
+      </div>
+    </div>
+    <!--input type="text"  id="list" onkeyup="myFruits()"placeholder="Search For..."/-->
+     <div class="specials">
+        
+        <div class="DuroStar">
+          <img
+            src="gen1.jpg"
+            alt=""
+          />
+          <div class="details">
+            <h2>Duro Star</h2>
+            <h3>R12000</h3>
+            <i>
+              <ul>
+                <li>Model no:ZH6500,Power output:15kW</li>
+                <li>fuel efficient, Longer Life & Less Maintenance</li>
+                
+              </ul>
+            </i>
+          </div>
+          <button @click="add = ('DuroStar')">Add to cart</button>
+        </div>
+        <div class="Canibas">
+            
+          <img
+            src="gen14.jpg"
+            alt=""
+          />
+          <div class="details">
+            <h2>Canibas</h2>
+            <h3>R11000</h3>
+            <i>
+              <ul>
+                <li>Model no:XY5474,Power output:13kW</li>
+                <li>Portable compact structure, easy portability</li>
+               
+              </ul>
+            </i>
+          </div>
+          <button @click="add = ('Canibas')">Add to cart</button>
+        </div>
+
+        <div class="Wen">
+          <img
+            src="gen3.jpg"
+            alt=""
+          />
+          <div class="details">
+            <h2>Wen</h2>
+            <h3>R13000</h3>
+            <i>
+              <ul>
+                <li>Model no:ZH5500,Power output:14kW</li>
+                <li>Generator Comes With Oil, Battery, 30A Cord, and a 1 Year Limited Warranty</li>
+                
+              </ul>
+            </i>
+          </div>
+          <button @click="add = ('Wen')">Add to cart</button>
+        </div>
+
+        <div class="Wanco">
+            <img
+              src="gen4.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>Wanco</h2>
+              <h3>R12500</h3>
+              <i>
+                <ul>
+                  <li>Model no:ZH4500, Power output:13.5kW</li>
+                  <li>Powers fridge, furnace, lights, TV, and much more</li>
+                  
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('Wanco')">Add to cart</button>
+          </div>
+          <div class="Generag">
+            <img
+              src="gen5.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>Generag</h2>
+              <h3>R15000</h3>
+              <i>
+                <ul>
+                  <li>Model no:ZH7500, Power output:17kW</li>
+                  <li>Patent design, unique appearance and function</li>
+                 
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('Generag')">Add to cart</button>
+          </div>
+  
+          <div class="Generac">
+            <img
+              src="gen6.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>Generac</h2>
+              <h3>R15500</h3>
+              <i>
+                <ul>
+                  <li>Model no:GP7600, Power output:18kW</li>
+                  <li>lithium-ion energy system solar charging generator energy storage</li>
+                  
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('Generac')">Add to cart</button>
+        </div>
+            <div class="Tes">
+                <img
+                  src="gen9.jpg"
+                  alt=""
+                />
+                <div class="details">
+                  <h2>Tes</h2>
+                  <h3>R18999</h3>
+                  <i>
+                    <ul>
+                      <li>Model no:AG800, Power output:19kW</li>
+                      <li>Three-phase generator,electric ignition,</li>
+                     
+                    </ul>
+                  </i>
+                </div>
+                <button @click="add = ('Tes')">Add to cart</button>
+              </div>
+      
+              <div class="Champion">
+                <img
+                  src="gen11.jpg"
+                  alt=""
+                />
+                <div class="details">
+                  <h2>Champion</h2>
+                  <h3>R19000</h3>
+                  <i>
+                    <ul>
+                      <li>Model no:ZH1500,Power output:17.5kW</li>
+                      <li>Economical, reliable and durable</li>
+                      
+                    </ul>
+                  </i>
+                </div>
+            <button @click="add = ('Champion')">Add to cart</button>
+          </div>
+
+          <div class="GasBank">
+            <img
+              src="gas1.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>GasBank</h2>
+              <h3>R610</h3>
+              <i>
+                <ul>
+                  <li>Model no:BN-5KG,Capacity:5kg</li>
+                  <li>External control valve and standard camping fitting (3/8” bsp)</li>
+                  
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('GasBank')">Add to cart</button>
+          </div>
+          <div class="Daly">
+            <img
+              src="gas16.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>Daly</h2>
+              <h3>R595</h3>
+              <i>
+                <ul>
+                  <li>Model no:BN-5kg-A,Capacity:5kg</li>
+                  <li>Portable compact structure, easy portability</li>
+                 
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('Daly')">Add to cart</button>
+          </div>
+  
+          <div class="Alva">
+            <img
+              src="gas3.jpg"
+              alt=""
+            />
+            <div class="details">
+              <h2>Alva</h2>
+              <h3>R680</h3>
+              <i>
+                <ul>
+                  <li>Model no:BN-6kg-A,Capacity:6kg</li>
+                  <li>Easy access, practical fingertip control valve</li>
+                  
+                </ul>
+              </i>
+            </div>
+            <button @click="add = ('Alva')">Add to cart</button>
+          </div>
+  
+          <div class="Cassandra">
+              <img
+                src="gas4.jpg"
+                alt=""
+              />
+              <div class="details">
+                <h2>Cassandra</h2>
+                <h3>R630</h3>
+                <i>
+                  <ul>
+                    <li>Model no:BN-6kg-B, Capacity:6kg</li>
+                    <li>Safety shroud protects valve and doubles up as convenient carry handle</li>
+                    
+                  </ul>
+                </i>
+              </div>
+              <button @click="add = ('Cassandra')">Add to cart</button>
+            </div>
+            <div class="Bluegas">
+              <img
+                src="gas5.jpg"
+                alt=""
+              />
+              <div class="details">
+                <h2>Bluegas</h2>
+                <h3>R550</h3>
+                <i>
+                  <ul>
+                    <li>Model no:, Capacity:3kg</li>
+                    <li>Safe, convenient, easy to use</li>
+                   
+                  </ul>
+                </i>
+              </div>
+              <button @click="add = ('Bluegas')">Add to cart</button>
+            </div>
+    
+            <div class="CALOR">
+              <img
+                src="gas11.jpg"
+                alt=""
+              />
+              <div class="details">
+                <h2>CALOR</h2>
+                <h3>R1100</h3>
+                <i>
+                  <ul>
+                    <li>Model no:BN-11kg-B, Capacity:11kg</li>
+                    <li>High heat range</li>
+                    
+                  </ul>
+                </i>
+              </div>
+              <button @click="add = ('CALOR')">Add to cart</button>
+          </div>
+              <div class="CADEC">
+                  <img
+                    src="gas6.jpg"
+                    alt=""
+                  />
+                  <div class="details">
+                    <h2>CADEC</h2>
+                    <h3>R599</h3>
+                    <i>
+                      <ul>
+                        <li>Model no:GP7600, Capacity:5kg</li>
+                        <li>Domestic cylinder with vertical exit valve(3/8BSP)</li>
+                       
+                      </ul>
+                    </i>
+                  </div>
+                  <button @click="add = ('CADEC')">Add to cart</button>
+                </div>
+        
+                <div class="Flogas">
+                  <img
+                    src="gas19.jpg"
+                    alt=""
+                  />
+                  <div class="details">
+                    <h2>Flogas</h2>
+                    <h3>R650</h3>
+                    <i>
+                      <ul>
+                        <li>Model no:BN-6kg-A, Capacity:6kg</li>
+                        <li>Gas available for/to swap with empty cylinders</li>
+                        
+                      </ul>
+                    </i>
+                  </div>
+              <button @click="add = ('Flogas')">Add to cart</button>
+            </div>
+          
+      </div>
+      <!--div class="footer">
+        <div class="contact">
+          <strong>Contact us at:</strong>
+          (021)-541-1000
+
+          <strong>twitter /fb /insta </strong> @perfectpizza
+        </div>
+        <div class="address">
+          Pizza Plaza
+          <br />
+          Dough Road
+          <br />
+          Base Town
+          <br />
+          7890
+        </div>
+      </div-->
+    </div>
+  </body>
+</html>

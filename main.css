@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.specials {
+    display:grid;
+    grid-template-columns: repeat(4, 223px);
+    gap: 30px;
+    justify-content: center;
+   
+  }
+  
+  @media (max-width: 1000px) {
+    .specials {
+      grid-template-columns: repeat(2, 223px);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .specials {
+      grid-template-columns: repeat(1, 223px);
+    }
+  }
+  
